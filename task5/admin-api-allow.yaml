@@ -1,0 +1,33 @@
+#Разрешает входящий трафик к admin-back-end-api только от admin-front-end
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: admin-api-allow-from-front-to-back
+spec:
+  podSelector:
+    matchLabels:
+      role: admin-back-end-api
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              role: admin-front-end
+  policyTypes:
+    - Ingress
+---
+#Разрешает входящий трафик к admin-front-end только от admin-back-end-api
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: admin-api-allow-from-back-to-front
+spec:
+  podSelector:
+    matchLabels:
+      role: admin-front-end
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              role: admin-back-end-api
+  policyTypes:
+    - Ingress

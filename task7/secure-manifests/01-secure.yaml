@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+meta:
+  name: privileged-pod
+  namespace: audit-zone
+spec:
+  containers:
+    - name: nginx
+      image: nginx
