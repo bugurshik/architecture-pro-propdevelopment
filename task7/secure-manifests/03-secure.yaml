@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Pod
 meta:
-  name: root-user-pod
+  name: pod-secure-privileged
   namespace: audit-zone
 spec:
   containers:
     - name: nginx
       image: nginx
-  securityContext:
-    runAsNonRoot: true
+      securityContext:
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 meta:
-  name: hostpath-pod
+  name: insecure-hostpath-pod
   namespace: audit-zone
 spec:
   containers:
@@ -10,4 +10,4 @@ spec:
   volumes:
     - name: host-volume
       hostPath:
-        path: /etc
+        path: /
