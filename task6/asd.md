@@ -15,16 +15,11 @@ minikube cp C:\Users\Sergo\source\repos\architecture-pro-propdevelopment\task6\k
 ## Копировать apiserver
 minikube ssh "sudo cat /etc/kubernetes/manifests/kube-apiserver.yaml" > kube-apiserver.yaml
 
+# Установить apiserver
+minikube cp "kube-apiserver.yaml" /etc/kubernetes/manifests/kube-apiserver.yaml
+
 ## Копировать audit-policy
 minikube ssh "sudo cat /etc/ssl/certs/audit-policy.yaml" > 2audit-policy.yaml
 
 # Копировать audit.log
 minikube ssh "sudo cat /var/log/audit.log" > audit.log
-
-# Установить apiserver
-minikube cp "kube-apiserver.yaml" /etc/kubernetes/manifests/kube-apiserver.yaml
-
-# Установить nano
-minikube ssh 
-sudo apt update
-sudo apt install nano -y
