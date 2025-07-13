@@ -26,7 +26,7 @@ EOF
 
 kubectl exec -n kube-system $(kubectl get pods -n kube-system | grep coredns | awk '{print $1}' | head -n1) -- cat /etc/resolv.conf
 
-kubectl delete -f /etc/kubernetes/audit-policy.yaml --as=admin
+kubectl delete -f ./audit-policy.yaml --as=admin
 
 cat <<EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
