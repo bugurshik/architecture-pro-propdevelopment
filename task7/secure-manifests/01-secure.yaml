@@ -7,3 +7,6 @@ spec:
   containers:
     - name: nginx
       image: nginx
+      securityContext:
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true

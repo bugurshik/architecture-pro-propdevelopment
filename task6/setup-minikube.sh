@@ -1,6 +1,10 @@
 minikube delete
 minikube start
 
+#  На хосте должно быть
+#  C:\Users\{user}\.minikube\files\etc\ssl\certs\audit-policy.yaml
+#  C:\Users\{user}\.minikube\files\var\log\audit.log
+
 minikube cp "audit-policy.yaml" /etc/ssl/certs/audit-policy.yaml
 minikube ssh "sudo mkdir -p /var/log/"
 
